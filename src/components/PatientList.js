@@ -9,6 +9,8 @@ import {
     FormGroup,
     ModalFooter,
 } from "reactstrap";
+
+import { Busqueda } from "./Busqueda.js";
 import { useState } from "react";
 
 const data = [
@@ -73,6 +75,9 @@ export const PatientList = () => {
                     Insertar Paciente
                 </Button>
                 <br />
+                <br />
+                <Busqueda />
+
                 <br />
                 <Table striped>
                     <thead>

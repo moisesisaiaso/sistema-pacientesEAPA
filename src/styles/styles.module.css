@@ -2,6 +2,11 @@
     margin-top: 0px !important;
 }
 
-.cualquierCosa {
-    color: aqua;
+.navSize {
+    font-size: 20px;
+    color: white !important;
+}
+
+.navlink {
+    color: white !important;
 }
