@@ -186,6 +186,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<PatientList />}></Route>
                 <Route path="/patients/new" element={<PatientForm />}></Route>
+                {/* editar */}
             </Routes>
         </BrowserRouter>
     );
