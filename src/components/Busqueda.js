@@ -6,7 +6,7 @@ export const Busqueda = () => {
             <form class="container-fluid">
                 <div class="input-group">
                     <button class="input-group-text" id="basic-addon1">
-                        🔍 🔎🔎
+                        🔍
                     </button>
                     <input
                         type="text"
