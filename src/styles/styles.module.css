@@ -1,4 +1,4 @@
-.nav {
+.navbar {
     margin-top: 0px !important;
 }
 
@@ -9,4 +9,12 @@
 
 .navlink {
     color: white !important;
+}
+
+.space {
+    margin-right: 20px;
+}
+
+.widthInput {
+    width: 223px !important;
 }

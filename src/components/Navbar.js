@@ -6,7 +6,7 @@ import eapa from "../assets/img/EAPAA.png";
 
 export const Navbarr = () => {
     return (
-        <Navbar className={`my-2 ${styles.nav}`} color="dark" dark style={{ flexGrow: 1 }}>
+        <Navbar className={`my-2 ${styles.navbar}`} color="dark" dark style={{ flexGrow: 1 }}>
             <NavbarBrand href="/">
                 <img
                     alt="logo"

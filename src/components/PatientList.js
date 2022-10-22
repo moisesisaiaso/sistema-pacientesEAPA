@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
+import styles from "../styles/styles.module.css";
 import {
     Button,
     Table,
@@ -18,39 +19,68 @@ const data = [
         id: 1,
         cedula: "0850063397",
         nombre: "Moises Isaias",
-        email: "moisesisaias23mar@gmail.com",
-        tipoSangre: "O+",
+        historiaClinica: "08001234337",
+        sexo: "Hombre",
+        grupoSanguineo: "O+ ",
+        fechaNacimiento: "1996-02-26",
+        edad: "55 años",
+        peso: "99 Kg",
+        presionArterial: "120 / 80 mm",
+        saturacionOxigeno: "0 %",
     },
     {
         id: 2,
         cedula: "0850063397",
         nombre: "Mari Ante",
-        email: "mariante@gmail.com",
-        tipoSangre: "O+",
+        historiaClinica: "08001234337",
+        sexo: "Mujer",
+        grupoSanguineo: "O +",
+        fechaNacimiento: "1996-02-26",
+        edad: "55 años",
+        peso: "99 Kg",
+        presionArterial: "120 / 80 mm",
+        saturacionOxigeno: "0 %",
     },
     {
         id: 3,
         cedula: "0850063397",
         nombre: "Maddy Ortiz ",
-        email: "maddyortizmar@gmail.com",
-        tipoSangre: "O+",
+        historiaClinica: "08001234337",
+        sexo: "Mujer",
+        grupoSanguineo: "O +",
+        fechaNacimiento: "1996-02-26",
+        edad: "55 años",
+        peso: "99 Kg",
+        presionArterial: "120 / 80 mm",
+        saturacionOxigeno: "0 %",
     },
     {
         id: 4,
         cedula: "0850063397",
         nombre: "Pablo Perez",
-        email: "pabloperez@gmail.com",
-        tipoSangre: "O+",
+        historiaClinica: "08001234337",
+        sexo: "Hombre",
+        grupoSanguineo: "O+ ",
+        fechaNacimiento: "1996-02-26",
+        edad: "55 años",
+        peso: "99 Kg",
+        presionArterial: "120 / 80 mm",
+        saturacionOxigeno: "0 %",
     },
 ];
 
 export const PatientList = () => {
     const [form, setForm] = useState({
-        id: "",
         cedula: "",
+        sexo: "",
         nombre: "",
-        email: "",
-        tipoSangre: "",
+        historiaClinica: "",
+        grupoSanguineo: "",
+        fechaNacimiento: "",
+        edad: "",
+        peso: "",
+        presionArterial: "",
+        saturacionOxigeno: "",
     });
 
     const [modalInsertar, setModalInsertar] = useState(false);
@@ -85,8 +115,9 @@ export const PatientList = () => {
                             <th>Id</th>
                             <th>Cedula</th>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Tipo de sangre</th>
+                            <th>Historia Clínica</th>
+                            <th>Sexo</th>
+                            <th>Grupo Sanguineo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -96,10 +127,13 @@ export const PatientList = () => {
                                 <td>{patient.id}</td>
                                 <td>{patient.cedula}</td>
                                 <td>{patient.nombre}</td>
-                                <td>{patient.email}</td>
-                                <td>{patient.tipoSangre}</td>
+                                <td>{patient.historiaClinica}</td>
+                                <td>{patient.sexo} </td>
+                                <td>{patient.grupoSanguineo}</td>
                                 <td>
-                                    <Button color="primary">Editar</Button>
+                                    <Button color="primary" onClick={() => mostrarModalInsertar()}>
+                                        Editar
+                                    </Button>
                                     {"  "}
                                     <Button color="danger">Eliminar</Button>
                                     {"  "}
@@ -119,21 +153,11 @@ export const PatientList = () => {
                         <h3>Editar Registro</h3>
                     </div>
                 </ModalHeader>
-                <ModalBody>
-                    <FormGroup>
-                        <label>Id:</label>
-                        <input
-                            className="form-control"
-                            readOnly
-                            type="text"
-                            value={data.length + 1}
-                            onChange={handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
+                <ModalBody style={{ display: "flex", flexWrap: "wrap", flexGrow: 2 }}>
+                    <FormGroup className={styles.space}>
                         <label>Cedula:</label>
                         <input
-                            className="form-control"
+                            className={`form-control ${styles.widthInput}`}
                             name="cedula"
                             type="text"
                             onChange={handleChange}
@@ -142,26 +166,80 @@ export const PatientList = () => {
                     <FormGroup>
                         <label>Nombre:</label>
                         <input
-                            className="form-control"
+                            className={`form-control ${styles.widthInput}`}
                             name="nombre"
                             type="text"
                             onChange={handleChange}
                         />
                     </FormGroup>
-                    <FormGroup>
-                        <label>Email:</label>
+                    <FormGroup className={styles.space}>
+                        <label>Historia Clínica:</label>
                         <input
-                            className="form-control"
-                            name="email"
+                            className={`form-control ${styles.widthInput}`}
+                            name="historiaClinica"
                             type="text"
                             onChange={handleChange}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <label>Tipo de Sangre:</label>
+                        <label>Sexo:</label>
                         <input
-                            className="form-control"
-                            name="tipoSangre"
+                            className={`form-control ${styles.widthInput}`}
+                            name="sexo"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup className={styles.space}>
+                        <label>Grupo Sanguineo:</label>
+                        <input
+                            className={`form-control ${styles.widthInput}`}
+                            name="grupoSanguineo"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <label>Fecha de Nacimiento:</label>
+                        <input
+                            className={`form-control ${styles.widthInput}`}
+                            name="fechaNacimiento"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup className={styles.space}>
+                        <label>Edad:</label>
+                        <input
+                            className={`form-control ${styles.widthInput}`}
+                            name="edad"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <label>Peso:</label>
+                        <input
+                            className={`form-control ${styles.widthInput}`}
+                            name="peso"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup className={styles.space}>
+                        <label>Presion Arterial:</label>
+                        <input
+                            className={`form-control ${styles.widthInput}`}
+                            name="presionArterial"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <label>Saturacion Oxigeno:</label>
+                        <input
+                            className={`form-control ${styles.widthInput}`}
+                            name="peso"
                             type="text"
                             onChange={handleChange}
                         />
